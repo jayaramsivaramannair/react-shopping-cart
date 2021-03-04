@@ -13,6 +13,12 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
+		products.map((product) => {
+			if (product.id === item.id) {
+				return setCart([...cart, item]);
+			}
+			return product;
+		})
 	};
 
 	return (
