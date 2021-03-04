@@ -1,7 +1,8 @@
 .products-container {
 	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	width: 1600px;
+	//width: 1600px;
 	margin: 0 auto;
 }
