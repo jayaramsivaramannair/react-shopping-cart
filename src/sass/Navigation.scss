@@ -1,6 +1,7 @@
 .navigation {
 	display: flex;
 	justify-content: flex-end;
+	flex-wrap: wrap;
 	padding: 0 100px;
 	transition: 0.2s ease-in;
 	margin-bottom: 40px;
@@ -19,7 +20,8 @@
 			font-weight: bold;
 			line-height: 18px;
 			text-align: center;
-			background: lightcoral;
+			background: yellowgreen;
+			color: black;
 			border-radius: 100%;
 			width: 18px;
 			height: 18px;

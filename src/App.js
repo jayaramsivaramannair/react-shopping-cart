@@ -17,17 +17,22 @@ function App() {
 	const addItem = item => {
 		// add the given item to the cart
 		products.map((product) => {
-			if (product.id === item.id) {
+			//Check that the product is not already included in the cart.
+			if (product.id === item.id && !cart.includes(item)) {
 				return setCart([...cart, item]);
 			}
 			return product;
 		})
 	};
 
+	const removeItem = itemId => {
+		return setCart([...cart.filter((item) => item.id !== itemId)])
+	}
+
 	return (
 		<div className="App">
 			<ProductContext.Provider value={{ products, addItem }}>
-				<CartContext.Provider value={cart}>
+				<CartContext.Provider value={{ cart, removeItem }}>
 					<Navigation />
 
 					{/* Routes */}
