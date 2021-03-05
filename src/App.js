@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import data from './data';
 //Contexts
@@ -28,6 +28,18 @@ function App() {
 	const removeItem = itemId => {
 		return setCart([...cart.filter((item) => item.id !== itemId)])
 	}
+
+	useEffect(() => {
+		const cartItems = localStorage.getItem('cart-items');
+		if (cartItems) {
+			setCart(JSON.parse(cartItems));
+		}
+	}, [])
+
+	// The above useEffect runs on initial render and thus it must be placed before the below useEffect
+	useEffect(() => {
+		localStorage.setItem('cart-items', JSON.stringify(cart));
+	});
 
 	return (
 		<div className="App">
